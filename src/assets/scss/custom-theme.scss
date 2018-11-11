@@ -1,0 +1,26 @@
+@import '~@angular/material/theming';
+
+@import "../../styles.scss";
+
+@include mat-core();
+
+// MAIN THEME
+  $primary: mat-palette($mat-amber, 300, 400, 500);
+  $accent:  mat-palette($mat-orange, A700, 100, 200);
+  $warn:    mat-palette($mat-red, 700, 100, A400);
+  $theme:   mat-light-theme($primary, $accent, $warn);
+
+@include theme-color-grabber($theme);
+@include angular-material-theme($theme);
+
+// ALTERNATIVE THEME
+.m2app-dark {
+  $dark-primary: mat-palette($mat-brown, 900);
+  $dark-accent:  mat-palette($mat-amber, A700);
+  $dark-warn:    mat-palette($mat-deep-orange, A400);
+  $dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
+
+  @include theme-color-grabber($dark-theme);
+  @include angular-material-theme($dark-theme);
+}
+
